@@ -1,0 +1,90 @@
+.App {
+  font-family: sans-serif;
+  text-align: center;
+}
+html {
+  -webkit-tap-highlight-color: rgba(0, 0, 0, 0);
+  /* height: 100vh; */
+  scroll-behavior: smooth;
+}
+body {
+  /* height: inherit; */
+  line-height: inherit;
+  margin: 0;
+  background-color: #f9fcff;
+  /* background-image: linear-gradient(147deg, #f9fcff 0%, #dee4ea 74%); */
+}
+
+.blurBackground {
+  backdrop-filter: blur(4px);
+}
+
+.centerDiv {
+  height: 100vh;
+  display: flex;
+  flex-direction: row;
+  align-content: center;
+  justify-content: space-around;
+  align-items: center;
+}
+
+.hero {
+  border: 1px solid rgb(0 0 0 / 16%);
+  box-shadow: -17px 10px black;
+  border-radius: 10px;
+  width: 65%;
+  padding: 24px;
+}
+
+.imageStyles {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  position: absolute;
+  z-index: 0;
+  top: 0;
+}
+.colorWhite {
+  background-color: transparent !important;
+}
+.avatar {
+  padding-right: 16px;
+  margin-left: -40px;
+}
+
+.linkedin:hover {
+  box-shadow: 0 5px 8px rgba(3, 169, 244, 0.25);
+  fill: #0288d1;
+  padding: 4px;
+  border-radius: 5px;
+}
+.github:hover {
+  box-shadow: 0 5px 8px rgba(0, 0, 0, 0.5);
+  fill: rgba(33, 33, 33, 1);
+  padding: 4px;
+  border-radius: 5px;
+}
+.codeSandBox:hover {
+  box-shadow: 0 5px 8px rgba(0, 0, 0, 0.5);
+  fill: rgba(33, 33, 33, 1);
+  padding: 4px;
+  border-radius: 5px;
+}
+
+.btnClass {
+  margin-right: 24px !important;
+  margin-top: 12px !important;
+  border-radius: 0.5rem !important;
+  border: 2px solid #080808 !important;
+  padding: 0.8rem 1.6rem !important;
+  transform: scale(1) !important;
+  box-shadow: none !important;
+  transition: all 0.3s ease-out !important;
+  color: black !important;
+}
+.btnClass:hover {
+  cursor: pointer;
+  box-shadow: 0 5px 8px rgba(0, 0, 0, 0.5) !important;
+  transform: scale(1.025) !important ;
+  transition: all 0.3s ease-in !important ;
+}
