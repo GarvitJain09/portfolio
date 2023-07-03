@@ -21,10 +21,10 @@ const App = () => {
       <>
         <ResponsiveAppBar />
         <div className="App">
-          <Container maxWidth="xl">
-            <HeroSection />
-            <About />
-          </Container>
+          {/* <Container maxWidth="xl"> */}
+          <HeroSection />
+          {/* </Container> */}
+          <About />
         </div>
       </>
     )

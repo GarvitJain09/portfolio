@@ -16,6 +16,7 @@ const pages = ["About", "Pricing", "Blog"];
 
 function ResponsiveAppBar() {
   const [mobileView, setMobileView] = useState(false);
+  const [openModal, setOpenModal] = useState(false);
 
   useEffect(() => {
     const setResponsiveness = () => {
@@ -34,11 +35,20 @@ function ResponsiveAppBar() {
   const [anchorElNav, setAnchorElNav] = useState(null);
 
   const handleOpenNavMenu = (event) => {
+    setOpenModal(true);
     setAnchorElNav(event.currentTarget);
   };
 
-  const handleCloseNavMenu = () => {
-    setAnchorElNav(null);
+  const handleCloseNavMenu = (event) => {
+    const section = document.querySelector("#About");
+    section.scrollIntoView({ behavior: "smooth", block: "start" });
+    // const releventDiv = document.getElementById(event.target.id);
+    console.log(event);
+    setOpenModal(false);
+    // console.log(releventDiv);
+    // // behavior: "smooth" parameter for smooth movement
+    // releventDiv.scrollIntoView({ behavior: "smooth" });
+    // setAnchorElNav(null);
   };
 
   return (
@@ -81,15 +91,17 @@ function ResponsiveAppBar() {
                 vertical: "top",
                 horizontal: "left",
               }}
-              open={Boolean(anchorElNav)}
-              onClose={handleCloseNavMenu}
+              open={openModal}
+              // onClose={handleCloseNavMenu}
               sx={{
                 display: { xs: "block", md: "none" },
               }}
             >
               {pages.map((page) => (
                 <MenuItem key={page} onClick={handleCloseNavMenu}>
-                  <Typography textAlign="center">{page}</Typography>
+                  <a href={`/#${page}`} textAlign="center">
+                    {page}
+                  </a>
                 </MenuItem>
               ))}
             </Menu>
@@ -106,6 +118,7 @@ function ResponsiveAppBar() {
               <Button
                 key={page}
                 onClick={handleCloseNavMenu}
+                href={`/#${page}`}
                 sx={{ my: 2, color: "white", display: "block" }}
               >
                 {page}
