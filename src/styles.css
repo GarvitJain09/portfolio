@@ -95,7 +95,64 @@ body {
     border: 1px solid rgb(0 0 0 / 16%);
     box-shadow: 10px -17px black;
   }
-  .centerDiv {
+  .centerDiv,
+  .aboutMe,
+  #skills {
     flex-wrap: wrap;
   }
+}
+.about {
+  /* height: 100vh; */
+  opacity: 1;
+  background: #262626;
+  margin-left: -24px;
+  margin-right: -24px;
+  /* padding: 24px; */
+  padding-bottom: 6rem;
+  padding-top: 6rem;
+  padding-left: 2rem;
+  padding-right: 2rem;
+  color: white;
+}
+.aboutMe {
+  margin: 24px;
+  display: flex;
+  justify-content: center;
+  flex-direction: row;
+  align-items: center;
+  gap: 50px;
+}
+#myImage {
+  width: 13rem;
+  overflow: hidden;
+  border-radius: 17px;
+}
+
+.svgIconsSkill {
+  width: 100%;
+  fill: white;
+  height: 5rem;
+}
+.divIconSkills {
+  display: flex;
+  border-radius: 0.5rem;
+  box-shadow: none;
+  padding: 2rem;
+  text-align: center;
+  align-items: center;
+  justify-content: center;
+  transition: box-shadow ease-in 1s;
+}
+#skills {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 10px;
+}
+.divIconSkills:hover {
+  box-shadow: 7px 7px 2px 2px rgb(255 253 253);
+}
+a {
+  color: black;
+  text-decoration: none;
 }

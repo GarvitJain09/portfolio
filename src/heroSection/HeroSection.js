@@ -3,12 +3,10 @@ import { IconButton, Container, Button } from "@mui/material";
 import GitHubIcon from "@mui/icons-material/GitHub";
 import LinkedInIcon from "@mui/icons-material/LinkedIn";
 import DownloadIcon from "@mui/icons-material/Download";
-import webDevelopment from "../images/webDevelopment.png";
 import { useAppSelector, getUsersData } from "../store";
 import { AvatarSVG, CodeSandBox } from "../images/imageSvg";
 const HeroSection = () => {
   const { basics } = useAppSelector(getUsersData);
-  console.log(basics, "this is hero");
   return (
     <section id="hero" className="centerDiv">
       <div id="homeContent" className="hero">
