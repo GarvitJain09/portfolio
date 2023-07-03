@@ -1,39 +1,77 @@
-import React, { useState, useEffect } from "react";
-import Box from "@mui/material/Box";
-import Typography from "@mui/material/Typography";
-import Modal from "@mui/material/Modal";
-export default function BasicModal({ open, setOpen, skill }) {
-  const handleOpen = () => setOpen(true);
-  const handleClose = () => setOpen(false);
+import * as React from "react";
+import Dialog from "@mui/material/Dialog";
+import DialogTitle from "@mui/material/DialogTitle";
+import DialogContent from "@mui/material/DialogContent";
+import IconButton from "@mui/material/IconButton";
+import CloseIcon from "@mui/icons-material/Close";
+import List from "@mui/material/List";
+import ListItem from "@mui/material/ListItem";
+import ListItemText from "@mui/material/ListItemText";
+import ListItemAvatar from "@mui/material/ListItemAvatar";
+import Avatar from "@mui/material/Avatar";
+import WorkIcon from "@mui/icons-material/Work";
+import Rating from "@mui/material/Rating";
+import LayersOutlinedIcon from "@mui/icons-material/LayersOutlined";
+import CalendarTodayOutlinedIcon from "@mui/icons-material/CalendarTodayOutlined";
 
-  const style = {
-    position: "absolute",
-    top: "50%",
-    left: "50%",
-    transform: "translate(-50%, -50%)",
-    width: 400,
-    bgcolor: "background.paper",
-    border: "2px solid #000",
-    boxShadow: 24,
-    p: 4,
+export default function CustomizedDialogs({ open, setOpen, skill }) {
+  const handleClose = () => {
+    setOpen(false);
   };
+
   return (
     <div>
-      <Modal
-        open={open}
+      <Dialog
         onClose={handleClose}
-        aria-labelledby="modal-modal-title"
-        aria-describedby="modal-modal-description"
+        aria-labelledby="customized-dialog-title"
+        open={open}
       >
-        <Box sx={style}>
-          <Typography id="modal-modal-title" variant="h6" component="h2">
-            {skill.name}
-          </Typography>
-          <Typography id="modal-modal-description" sx={{ mt: 2 }}>
-            Duis mollis, est non commodo luctus, nisi erat porttitor ligula.
-          </Typography>
-        </Box>
-      </Modal>
+        <DialogTitle sx={{ m: 0, p: 2 }}>
+          {skill.name === "Js" ? "JavaScript" : skill.name}
+          <IconButton
+            aria-label="close"
+            onClick={handleClose}
+            sx={{
+              position: "absolute",
+              right: 8,
+              top: 8,
+              color: (theme) => theme.palette.grey[500],
+            }}
+          >
+            <CloseIcon />
+          </IconButton>
+        </DialogTitle>
+        <DialogContent dividers>
+          <List
+            sx={{ width: "100%", maxWidth: 360, bgcolor: "background.paper" }}
+          >
+            <ListItem>
+              <ListItemAvatar>
+                <Avatar>
+                  <CalendarTodayOutlinedIcon />
+                </Avatar>
+              </ListItemAvatar>
+              <ListItemText
+                secondary="Experience"
+                primary={`${skill.yearsOfExperience} Years`}
+              />
+            </ListItem>
+            <ListItem>
+              <ListItemAvatar>
+                <Avatar>
+                  <LayersOutlinedIcon />
+                </Avatar>
+              </ListItemAvatar>
+              <ListItemText
+                primary={`${skill.level} Level`}
+                secondary={
+                  <Rating name="read-only" value={skill.rating} readOnly />
+                }
+              />
+            </ListItem>
+          </List>
+        </DialogContent>
+      </Dialog>
     </div>
   );
 }
