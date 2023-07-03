@@ -32,7 +32,8 @@ body {
   border: 1px solid rgb(0 0 0 / 16%);
   box-shadow: -17px 10px black;
   border-radius: 10px;
-  width: 65%;
+  gap: 1;
+  flex-grow: 1;
   padding: 24px;
 }
 
@@ -49,7 +50,7 @@ body {
 }
 .avatar {
   padding-right: 16px;
-  margin-left: -40px;
+  flex-grow: 0.3;
 }
 
 .linkedin:hover {
@@ -87,4 +88,14 @@ body {
   box-shadow: 0 5px 8px rgba(0, 0, 0, 0.5) !important;
   transform: scale(1.025) !important ;
   transition: all 0.3s ease-in !important ;
+}
+
+@media (max-width: 900px) {
+  .hero {
+    border: 1px solid rgb(0 0 0 / 16%);
+    box-shadow: 10px -17px black;
+  }
+  .centerDiv {
+    flex-wrap: wrap;
+  }
 }
