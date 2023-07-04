@@ -1,6 +1,5 @@
 import React, { useState, useEffect } from "react";
 import { useAppSelector, getUsersData } from "../store";
-import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { skillsIcon } from "../images/imageSvg";
 import BasicModal from "./SkillsModal";
 
@@ -8,10 +7,6 @@ const Skills = () => {
   const { skills } = useAppSelector(getUsersData);
   const [modalOpen, setModalOpen] = useState(false);
   const [skill, setSkill] = useState();
-  console.log(skills);
-  //   return skills?.map((skill) => {
-  //     return skill.keywords[0];
-  //   });
   const OpenModal = (skill) => {
     setModalOpen(true);
     setSkill(skill);
