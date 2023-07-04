@@ -104,6 +104,20 @@ body {
   }
   .workEx {
     height: auto !important;
+    display: block !important;
+  }
+  #containerClass {
+    display: block !important;
+  }
+  .boxWorkEx {
+    display: block !important;
+  }
+  .MuiTabs-flexContainer {
+    padding-left: 0px;
+  }
+  #TabButton {
+    padding-right: 10px !important;
+    padding-left: 10px !important;
   }
 }
 .about {
@@ -159,13 +173,13 @@ a {
   color: black;
   text-decoration: none;
 }
-.CodeSandBoxClass{
+.CodeSandBoxClass {
   user-select: none;
-    width: 1em;
-    height: 1em;
-    display: inline-block;
-    fill: currentcolor;
-    flex-shrink: 0;
-    transition: fill 200ms cubic-bezier(0.4, 0, 0.2, 1) 0ms;
-    font-size: 1.5rem;
+  width: 1em;
+  height: 1em;
+  display: inline-block;
+  fill: currentcolor;
+  flex-shrink: 0;
+  transition: fill 200ms cubic-bezier(0.4, 0, 0.2, 1) 0ms;
+  font-size: 1.5rem;
 }
