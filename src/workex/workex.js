@@ -38,6 +38,22 @@ TabPanel.propTypes = {
 };
 
 export default function WorkEx() {
+  const [mobileView, setMobileView] = React.useState(false);
+
+  React.useEffect(() => {
+    const setResponsiveness = () => {
+      return window.innerWidth < 900
+        ? setMobileView(true)
+        : setMobileView(false);
+    };
+
+    setResponsiveness();
+    window.addEventListener("resize", () => setResponsiveness());
+
+    return () => {
+      window.removeEventListener("resize", () => setResponsiveness());
+    };
+  }, []);
   const [value, setValue] = React.useState(0);
   const { work } = useAppSelector(getUsersData);
   const handleChange = (event, newValue) => {
@@ -47,7 +63,12 @@ export default function WorkEx() {
   const tabWorks = () => {
     return work.map((workexp) => {
       return (
-        <Tab className="TabButton" label={workexp.name} workex={workexp} />
+        <Tab
+          id="TabButton"
+          className="TabButton"
+          label={workexp.name}
+          workex={workexp}
+        />
       );
     });
   };
@@ -62,11 +83,12 @@ export default function WorkEx() {
   };
   return (
     <section id="workEx" className="workEx">
-      <Container maxWidth="xl" className="customCssBox">
+      <Container id="containerClass" maxWidth="xl" className="customCssBox">
         <header>
           <h1>Work Experience</h1>
         </header>
         <Box
+          className="boxWorkEx"
           sx={{
             flexGrow: 1,
             display: "flex",
@@ -74,7 +96,7 @@ export default function WorkEx() {
           }}
         >
           <Tabs
-            orientation="vertical"
+            orientation={mobileView ? "" : "vertical"}
             variant="scrollable"
             value={value}
             onChange={handleChange}

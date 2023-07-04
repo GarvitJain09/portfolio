@@ -47,13 +47,9 @@ function ResponsiveAppBar() {
     console.log(event.target);
     const section = document.querySelector("#About");
     section.scrollIntoView({ behavior: "smooth", block: "start" });
-    // const releventDiv = document.getElementById(event.target.id);
+  
     console.log(event);
     setOpenModal(false);
-    // console.log(releventDiv);
-    // // behavior: "smooth" parameter for smooth movement
-    // releventDiv.scrollIntoView({ behavior: "smooth" });
-    // setAnchorElNav(null);
   };
 
   return (

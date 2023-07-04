@@ -59,3 +59,11 @@ ul {
     padding: 5px;
   }
 }
+.boxWorkEx {
+  flex-grow: 1;
+  display: flex;
+  width: 100%;
+}
+.hideClass {
+  display: none;
+}
