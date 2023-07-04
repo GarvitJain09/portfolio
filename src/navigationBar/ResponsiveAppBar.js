@@ -12,7 +12,11 @@ import {
 } from "@mui/material";
 import MenuIcon from "@mui/icons-material/Menu";
 
-const pages = ["About", "Pricing", "Blog"];
+const pages = [
+  { name: "About", id: "About" },
+  { name: "Work Experience", id: "workEx" },
+  "Blog",
+];
 
 function ResponsiveAppBar() {
   const [mobileView, setMobileView] = useState(false);
@@ -40,6 +44,7 @@ function ResponsiveAppBar() {
   };
 
   const handleCloseNavMenu = (event) => {
+    console.log(event.target);
     const section = document.querySelector("#About");
     section.scrollIntoView({ behavior: "smooth", block: "start" });
     // const releventDiv = document.getElementById(event.target.id);
@@ -98,9 +103,9 @@ function ResponsiveAppBar() {
               }}
             >
               {pages.map((page) => (
-                <MenuItem key={page} onClick={handleCloseNavMenu}>
-                  <a href={`/#${page}`} textAlign="center">
-                    {page}
+                <MenuItem key={page.id} onClick={handleCloseNavMenu}>
+                  <a href={`/#${page.id}`} textAlign="center">
+                    {page.name}
                   </a>
                 </MenuItem>
               ))}
@@ -116,12 +121,13 @@ function ResponsiveAppBar() {
           >
             {pages.map((page) => (
               <Button
-                key={page}
+              
+                key={page.id}
                 onClick={handleCloseNavMenu}
-                href={`/#${page}`}
+                href={`/#${page.id}`}
                 sx={{ my: 2, color: "white", display: "block" }}
               >
-                {page}
+                {page.name}
               </Button>
             ))}
           </Box>

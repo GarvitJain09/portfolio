@@ -97,8 +97,13 @@ body {
   }
   .centerDiv,
   .aboutMe,
-  #skills {
+  #skills,
+  .workEx,
+  .customCssBox {
     flex-wrap: wrap;
+  }
+  .workEx {
+    height: auto !important;
   }
 }
 .about {

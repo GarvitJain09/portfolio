@@ -10,6 +10,7 @@ import ResponsiveAppBar from "./navigationBar/ResponsiveAppBar";
 import HeroSection from "./heroSection/HeroSection";
 import About from "./about/About";
 import "./styles.css";
+import WorkEx from "./workex/workex";
 const App = () => {
   const dispatch = useAppDispatch();
   const isApiLoaded = useAppSelector(getApiLoaded);
@@ -21,10 +22,13 @@ const App = () => {
       <>
         <ResponsiveAppBar />
         <div className="App">
-          {/* <Container maxWidth="xl"> */}
+           
+          <Container maxWidth="xl">
           <HeroSection />
           {/* </Container> */}
           <About />
+          <WorkEx />
+             </Container>
         </div>
       </>
     )
