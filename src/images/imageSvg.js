@@ -32,7 +32,7 @@ const CodeSandBox = () => {
     <svg
       viewBox="0 0 16 16"
       xmlns="http://www.w3.org/2000/svg"
-      className="MuiSvgIcon-root MuiSvgIcon-fontSizeMedium css-i4bv87-MuiSvgIcon-root codeSandBox"
+      className="CodeSandBoxClass"
       style={{ fill: "transparent" }}
     >
       <path
