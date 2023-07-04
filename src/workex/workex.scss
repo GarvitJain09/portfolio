@@ -11,6 +11,7 @@ ul {
   list-style-type: none;
   text-align: justify;
   text-justify: inter-word;
+  word-break: break-all;
 }
 .customCssBox {
   display: flex !important;
