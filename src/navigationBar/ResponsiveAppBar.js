@@ -4,11 +4,12 @@ import {
   Box,
   Toolbar,
   IconButton,
-  Typography,
-  Menu,
+  ListItemText,
+  ListItem,
   Container,
   Button,
-  MenuItem,
+  List,
+  Drawer,
 } from "@mui/material";
 import MenuIcon from "@mui/icons-material/Menu";
 
@@ -36,13 +37,13 @@ function ResponsiveAppBar() {
       window.removeEventListener("resize", () => setResponsiveness());
     };
   }, []);
-  const [anchorElNav, setAnchorElNav] = useState(null);
 
-  const handleOpenNavMenu = (event) => {
+  const handleOpenNavMenu = () => {
     setOpenModal(true);
-    setAnchorElNav(event.currentTarget);
   };
-
+  const handleDrawerClose = () => {
+    setOpenModal(false);
+  };
   const handleCloseNavMenu = (event) => {
     console.log(event.target);
     const section = document.querySelector("#About");
@@ -55,7 +56,6 @@ function ResponsiveAppBar() {
   return (
     <AppBar
       position="sticky"
-      className={mobileView ? "" : "blurBackground"}
       sx={
         mobileView
           ? { bgcolor: "transparent", boxShadow: "none", color: "black" }
@@ -80,32 +80,24 @@ function ResponsiveAppBar() {
             >
               <MenuIcon />
             </IconButton>
-            <Menu
-              id="menu-appbar"
-              anchorEl={anchorElNav}
-              anchorOrigin={{
-                vertical: "bottom",
-                horizontal: "left",
+            <Drawer
+              PaperProps={{
+                sx: { width: "50%" },
               }}
-              keepMounted
-              transformOrigin={{
-                vertical: "top",
-                horizontal: "left",
-              }}
+              anchor="right"
               open={openModal}
-              // onClose={handleCloseNavMenu}
-              sx={{
-                display: { xs: "block", md: "none" },
-              }}
+              onClose={handleDrawerClose}
             >
-              {pages.map((page) => (
-                <MenuItem key={page.id} onClick={handleCloseNavMenu}>
-                  <a href={`/#${page.id}`} textAlign="center">
-                    {page.name}
-                  </a>
-                </MenuItem>
-              ))}
-            </Menu>
+              <List>
+                {pages.map((page) => (
+                  <ListItem key={page.id} onClick={handleCloseNavMenu}>
+                    <a href={`/#${page.id}`} textAlign="center">
+                      {page.name}
+                    </a>
+                  </ListItem>
+                ))}
+              </List>
+            </Drawer>
           </Box>
           <Box
             sx={{
@@ -114,6 +106,7 @@ function ResponsiveAppBar() {
               justifyContent: "center",
               alignItems: "center",
             }}
+            className="blurBackground"
           >
             {pages.map((page) => (
               <Button
