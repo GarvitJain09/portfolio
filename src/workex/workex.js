@@ -37,23 +37,7 @@ TabPanel.propTypes = {
   value: PropTypes.number.isRequired,
 };
 
-export default function WorkEx() {
-  const [mobileView, setMobileView] = React.useState(false);
-
-  React.useEffect(() => {
-    const setResponsiveness = () => {
-      return window.innerWidth < 900
-        ? setMobileView(true)
-        : setMobileView(false);
-    };
-
-    setResponsiveness();
-    window.addEventListener("resize", () => setResponsiveness());
-
-    return () => {
-      window.removeEventListener("resize", () => setResponsiveness());
-    };
-  }, []);
+export default function WorkEx({ mobileView }) {
   const [value, setValue] = React.useState(0);
   const { work } = useAppSelector(getUsersData);
   const handleChange = (event, newValue) => {

@@ -1,4 +1,4 @@
-import { useEffect } from "react";
+import { useEffect, useState } from "react";
 import { IconButton, Container, Button } from "@mui/material";
 import {
   useAppDispatch,
@@ -12,26 +12,54 @@ import About from "./about/About";
 import "./styles.scss";
 import WorkEx from "./workex/workex";
 import ThingsBuilt from "./thingsBuilt/ThingsBuilt";
+import { ThemeProvider, createTheme } from "@mui/material/styles";
+import CssBaseline from "@mui/material/CssBaseline";
+// import CssBaseline from '@mui/material/CssBaseline';
+
 const App = () => {
   const dispatch = useAppDispatch();
+  const [mode, setMode] = useState("light");
+  const [mobileView, setMobileView] = useState(false);
   const isApiLoaded = useAppSelector(getApiLoaded);
+  const darkTheme = createTheme({
+    palette: {
+      mode,
+    },
+  });
   useEffect(() => {
     dispatch(fetchData());
+    const setResponsiveness = () => {
+      return window.innerWidth < 900
+        ? setMobileView(true)
+        : setMobileView(false);
+    };
+
+    setResponsiveness();
+    window.addEventListener("resize", () => setResponsiveness());
+
+    return () => {
+      window.removeEventListener("resize", () => setResponsiveness());
+    };
   }, []);
   return (
     isApiLoaded && (
-      <>
-        <ResponsiveAppBar />
-        <div className=" light App">
+      <ThemeProvider theme={darkTheme}>
+        <CssBaseline />
+        <ResponsiveAppBar
+          setMode={setMode}
+          mode={mode}
+          mobileView={mobileView}
+        />
+        <div className={` ${mode} App`}>
           <Container maxWidth="xl">
             <HeroSection />
             <About />
-            <WorkEx />
+            <WorkEx mobileView={mobileView} />
             <ThingsBuilt />
           </Container>
         </div>
-      </>
-    )
+      </ThemeProvider> 
+    ) 
   );
-};
+};  
 export default App;

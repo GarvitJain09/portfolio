@@ -18,7 +18,8 @@ body {
   background-color: #f9fcff;
   /* background-image: linear-gradient(147deg, #f9fcff 0%, #dee4ea 74%); */
 }
-.light {
+.light,
+.dark {
   .loaderClass {
     position: absolute;
     left: 0;
@@ -30,6 +31,9 @@ body {
 
   .blurBackground {
     backdrop-filter: blur(4px);
+    a {
+      color: white !important;
+    }
   }
 
   .centerDiv {
@@ -205,5 +209,38 @@ body {
     flex-shrink: 0;
     transition: fill 200ms cubic-bezier(0.4, 0, 0.2, 1) 0ms;
     font-size: 1.5rem;
+  }
+  .drawer {
+    justify-content: center !important;
+  }
+}
+.dark {
+  * {
+    color: white !important;
+  }
+  // svg {
+  //   fill: white !important;
+  // }
+  .btnClass {
+    color: white !important;
+  }
+  .hero {
+    box-shadow: -17px 10px #d3d3d38f !important;
+  }
+  .avatar {
+    svg {
+      fill: lightgray !important;
+    }
+  }
+  #workEx {
+    button {
+      color: white !important;
+      border: 2px solid white !important;
+    }
+  }
+  .github:hover,
+  .projectURL:hover {
+    box-shadow: 0 5px 8px lightgrey !important;
+    fill: white !important;
   }
 }
