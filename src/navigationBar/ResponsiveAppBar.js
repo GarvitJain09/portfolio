@@ -10,33 +10,23 @@ import {
   Button,
   List,
   Drawer,
+  ListItemIcon,
 } from "@mui/material";
 import MenuIcon from "@mui/icons-material/Menu";
+import InfoIcon from "@mui/icons-material/Info";
+import Brightness4Icon from "@mui/icons-material/Brightness4";
+import Brightness7Icon from "@mui/icons-material/Brightness7";
+import AccountTreeIcon from "@mui/icons-material/AccountTree";
+import WorkOutlineIcon from "@mui/icons-material/WorkOutline";
 
 const pages = [
-  { name: "About", id: "About" },
-  { name: "Work Experience", id: "workEx" },
-  { name: "Project", id: "projects" },
+  { name: "About", id: "About", icon: <InfoIcon /> },
+  { name: "Work Experience", id: "workEx", icon: <WorkOutlineIcon /> },
+  { name: "Project", id: "projects", icon: <AccountTreeIcon /> },
 ];
 
-function ResponsiveAppBar() {
-  const [mobileView, setMobileView] = useState(false);
+function ResponsiveAppBar({ setMode, mode, mobileView }) {
   const [openModal, setOpenModal] = useState(false);
-
-  useEffect(() => {
-    const setResponsiveness = () => {
-      return window.innerWidth < 900
-        ? setMobileView(true)
-        : setMobileView(false);
-    };
-
-    setResponsiveness();
-    window.addEventListener("resize", () => setResponsiveness());
-
-    return () => {
-      window.removeEventListener("resize", () => setResponsiveness());
-    };
-  }, []);
 
   const handleOpenNavMenu = () => {
     setOpenModal(true);
@@ -52,16 +42,23 @@ function ResponsiveAppBar() {
     console.log(event);
     setOpenModal(false);
   };
-
+  const onModeChange = () => {
+    mode === "light" ? setMode("dark") : setMode("light");
+  };
   return (
     <AppBar
       position="sticky"
       sx={
         mobileView
-          ? { bgcolor: "transparent", boxShadow: "none", color: "black" }
+          ? {
+              bgcolor: "transparent",
+              boxShadow: "none",
+              color: "black",
+              backgroundImage: "none",
+            }
           : { bgcolor: "hsla(0,0%,9%,.5)" }
       }
-      className="light"
+      className={mode}
     >
       <Container maxWidth="xl">
         <Toolbar disableGutters>
@@ -88,15 +85,38 @@ function ResponsiveAppBar() {
               anchor="right"
               open={openModal}
               onClose={handleDrawerClose}
+              className={`${mode}`}
             >
               <List>
                 {pages.map((page) => (
-                  <ListItem key={page.id} onClick={handleCloseNavMenu}>
-                    <a href={`/#${page.id}`} textAlign="center">
-                      {page.name}
-                    </a>
-                  </ListItem>
+                  <a
+                    href={`/#${page.id}`}
+                    textAlign="center"
+                    className="drawer"
+                  >
+                    <ListItem
+                      key={page.id}
+                      className="drawer"
+                      onClick={handleCloseNavMenu}
+                    >
+                      <ListItemIcon>{page.icon}</ListItemIcon>
+                      <ListItemText>{page.name}</ListItemText>
+                    </ListItem>
+                  </a>
                 ))}
+                 <a textAlign="center">
+                <ListItem
+                  key="darkModeLightMode"
+                  className="drawer">     
+                 <ListItemIcon>
+                    {mode === "light" ? (
+                      <Brightness4Icon onClick={onModeChange} />
+                    ) : (
+                      <Brightness7Icon onClick={onModeChange} />
+                    )}
+                  </ListItemIcon>
+                </ListItem>
+                  </a>
               </List>
             </Drawer>
           </Box>
@@ -107,7 +127,7 @@ function ResponsiveAppBar() {
               justifyContent: "center",
               alignItems: "center",
             }}
-            className="blurBackground"
+            className={`blurBackground ${mode}`}
           >
             {pages.map((page) => (
               <Button
@@ -120,6 +140,13 @@ function ResponsiveAppBar() {
               </Button>
             ))}
           </Box>
+          {!mobileView ? (
+            mode === "light" ? (
+              <Brightness4Icon onClick={onModeChange} />
+            ) : (
+              <Brightness7Icon onClick={onModeChange} />
+            )
+          ) : null}
         </Toolbar>
       </Container>
     </AppBar>
