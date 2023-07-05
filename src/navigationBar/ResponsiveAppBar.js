@@ -61,6 +61,7 @@ function ResponsiveAppBar() {
           ? { bgcolor: "transparent", boxShadow: "none", color: "black" }
           : { bgcolor: "hsla(0,0%,9%,.5)" }
       }
+      className="light"
     >
       <Container maxWidth="xl">
         <Toolbar disableGutters>

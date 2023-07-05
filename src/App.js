@@ -9,7 +9,7 @@ import {
 import ResponsiveAppBar from "./navigationBar/ResponsiveAppBar";
 import HeroSection from "./heroSection/HeroSection";
 import About from "./about/About";
-import "./styles.css";
+import "./styles.scss";
 import WorkEx from "./workex/workex";
 import ThingsBuilt from "./thingsBuilt/ThingsBuilt";
 const App = () => {
@@ -22,7 +22,7 @@ const App = () => {
     isApiLoaded && (
       <>
         <ResponsiveAppBar />
-        <div className="App">
+        <div className=" light App">
           <Container maxWidth="xl">
             <HeroSection />
             <About />
