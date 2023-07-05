@@ -15,7 +15,7 @@ import MenuIcon from "@mui/icons-material/Menu";
 const pages = [
   { name: "About", id: "About" },
   { name: "Work Experience", id: "workEx" },
-  "Blog",
+  { name: "Project", id: "projects" },
 ];
 
 function ResponsiveAppBar() {
@@ -47,7 +47,7 @@ function ResponsiveAppBar() {
     console.log(event.target);
     const section = document.querySelector("#About");
     section.scrollIntoView({ behavior: "smooth", block: "start" });
-  
+
     console.log(event);
     setOpenModal(false);
   };
@@ -117,7 +117,6 @@ function ResponsiveAppBar() {
           >
             {pages.map((page) => (
               <Button
-              
                 key={page.id}
                 onClick={handleCloseNavMenu}
                 href={`/#${page.id}`}
