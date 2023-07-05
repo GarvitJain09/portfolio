@@ -7,12 +7,7 @@
   justify-content: center;
   align-items: center;
 }
-ul {
-  list-style-type: none;
-  text-align: justify;
-  text-justify: inter-word;
-  word-break: break-all;
-}
+
 .customCssBox {
   display: flex !important;
   flex-wrap: nowrap !important;
@@ -53,6 +48,12 @@ ul {
   border: 2px solid #080808 !important;
 }
 .workEx {
+  ul {
+    list-style-type: none;
+    text-align: justify;
+    text-justify: inter-word;
+    word-break: break-all;
+  }
   ul li::before {
     content: "▹";
     color: black;
