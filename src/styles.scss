@@ -213,6 +213,9 @@ body {
   .drawer {
     justify-content: center !important;
   }
+  .modeChange {
+    cursor: pointer;
+  }
 }
 .dark {
   * {
@@ -223,6 +226,7 @@ body {
   // }
   .btnClass {
     color: white !important;
+    border: 2px solid white !important;
   }
   .hero {
     box-shadow: -17px 10px #d3d3d38f !important;
@@ -242,5 +246,8 @@ body {
   .projectURL:hover {
     box-shadow: 0 5px 8px lightgrey !important;
     fill: white !important;
+  }
+  .modeChange {
+    cursor: pointer;
   }
 }

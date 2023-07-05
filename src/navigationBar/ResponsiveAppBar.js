@@ -35,15 +35,13 @@ function ResponsiveAppBar({ setMode, mode, mobileView }) {
     setOpenModal(false);
   };
   const handleCloseNavMenu = (event) => {
-    console.log(event.target);
     const section = document.querySelector("#About");
     section.scrollIntoView({ behavior: "smooth", block: "start" });
-
-    console.log(event);
     setOpenModal(false);
   };
   const onModeChange = () => {
     mode === "light" ? setMode("dark") : setMode("light");
+    setOpenModal(false);
   };
   return (
     <AppBar
@@ -104,19 +102,24 @@ function ResponsiveAppBar({ setMode, mode, mobileView }) {
                     </ListItem>
                   </a>
                 ))}
-                 <a textAlign="center">
-                <ListItem
-                  key="darkModeLightMode"
-                  className="drawer">     
-                 <ListItemIcon>
-                    {mode === "light" ? (
-                      <Brightness4Icon onClick={onModeChange} />
-                    ) : (
-                      <Brightness7Icon onClick={onModeChange} />
-                    )}
-                  </ListItemIcon>
-                </ListItem>
-                  </a>
+                <a
+                  textAlign="center"
+                  onClick={onModeChange}
+                  className="modeChange"
+                >
+                  <ListItem key="darkModeLightMode" className="drawer">
+                    <ListItemIcon>
+                      {mode === "light" ? (
+                        <Brightness4Icon />
+                      ) : (
+                        <Brightness7Icon />
+                      )}
+                    </ListItemIcon>
+                    <ListItemText>
+                      {mode === "light" ? "Light Mode" : "Dark Mode"}
+                    </ListItemText>
+                  </ListItem>
+                </a>
               </List>
             </Drawer>
           </Box>
