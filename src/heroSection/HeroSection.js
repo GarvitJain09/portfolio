@@ -5,6 +5,7 @@ import LinkedInIcon from "@mui/icons-material/LinkedIn";
 import DownloadIcon from "@mui/icons-material/Download";
 import { useAppSelector, getUsersData } from "../store";
 import { AvatarSVG, CodeSandBox } from "../images/imageSvg";
+import Garvit_Resume from "../utils/Garvit_Resume.pdf";
 const HeroSection = () => {
   const { basics } = useAppSelector(getUsersData);
   return (
@@ -37,7 +38,12 @@ const HeroSection = () => {
             </IconButton>
           </div>
           <div className="flex w-full justify-center gap-x-4">
-            <Button variant="outlined" className="btnClass">
+            <Button
+              variant="outlined"
+              className="btnClass"
+              href={Garvit_Resume}
+              target="_blank"
+            >
               <DownloadIcon /> Resume
             </Button>
             <Button variant="outlined" className="btnClass" href="#contact">
