@@ -16,6 +16,9 @@ const ThingsBuilt = () => {
   return (
     <section id="projects" className="projects">
       <Container id="containerClass" maxWidth="xl" className="customCssBox">
+        <header>
+          <h1>Some Things I’ve Built</h1>
+        </header>
         {projects.map((project, idx) => {
           return (
             <div class="project-container">
