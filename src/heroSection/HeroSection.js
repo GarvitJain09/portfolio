@@ -8,7 +8,7 @@ import { AvatarSVG, CodeSandBox } from "../images/imageSvg";
 import WhatsAppIcon from "@mui/icons-material/WhatsApp";
 import Garvit_Resume from "../utils/Garvit_Resume.pdf";
 const HeroSection = () => {
-  const { basics } = useAppSelector(getUsersData);
+  const { basics, work } = useAppSelector(getUsersData);
   return (
     <Container maxWidth="xl">
       <section id="hero" className="centerDiv">
@@ -16,7 +16,7 @@ const HeroSection = () => {
           <h1>I'm {basics.name}</h1>
           <p>
             I'm a India based <strong>UI Developer</strong>, currently working
-            at <strong>Xactly Corporation </strong> helping build a modern UI.
+            at <strong>{work[0].name}</strong> helping build a modern UI.
           </p>
           <div>
             <IconButton
