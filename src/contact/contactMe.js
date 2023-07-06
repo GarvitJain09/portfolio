@@ -2,6 +2,8 @@ import React, { useRef } from "react";
 import Box from "@mui/material/Box";
 import emailjs from "@emailjs/browser";
 import TextField from "@mui/material/TextField";
+import { Button, Container } from "@mui/material";
+
 export const ContactMe = () => {
   const form = useRef();
 
@@ -26,37 +28,43 @@ export const ContactMe = () => {
   };
 
   return (
-    <Box
-      component="form"
-      sx={{
-        "& .MuiTextField-root": { m: 1, width: "25ch" },
-      }}
-      noValidate
-      autoComplete="off"
-      ref={form}
-      onSubmit={sendEmail}
-    >
-      <TextField
-        id="outlined-basic"
-        label="name"
-        variant="outlined"
-        name="user_name"
-      />
-      <TextField
-        id="outlined-basic"
-        label="Email"
-        variant="outlined"
-        name="user_email"
-      />
-      <TextField
-        id="outlined-multiline-static"
-        label="Message"
-        label="Multiline"
-        name="message"
-        multiline
-        rows={4}
-      />
-      <input type="submit" value="Send" />
-    </Box>
+    <Container maxWidth="xl">
+      <section id="contactMe">
+        <Box
+          component="form"
+          sx={{
+            "& .MuiTextField-root": { m: 1, width: "25ch" },
+          }}
+          noValidate
+          autoComplete="off"
+          ref={form}
+          onSubmit={sendEmail}
+          className="displayFlex"
+        >
+          <TextField
+            id="outlined-basic"
+            label="Name"
+            variant="outlined"
+            name="user_name"
+          />
+          <TextField
+            id="outlined-basic"
+            label="Email"
+            variant="outlined"
+            name="user_email"
+          />
+          <TextField
+            id="outlined-multiline-static"
+            label="Message"
+            name="message"
+            multiline
+            rows={4}
+          />
+          <Button type="submit" value="send" variant="contained">
+            Send Email
+          </Button>
+        </Box>
+      </section>
+    </Container>
   );
 };
