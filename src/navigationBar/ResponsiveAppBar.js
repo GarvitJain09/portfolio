@@ -18,11 +18,13 @@ import Brightness4Icon from "@mui/icons-material/Brightness4";
 import Brightness7Icon from "@mui/icons-material/Brightness7";
 import AccountTreeIcon from "@mui/icons-material/AccountTree";
 import WorkOutlineIcon from "@mui/icons-material/WorkOutline";
+import ContactEmergencyIcon from "@mui/icons-material/ContactEmergency";
 
 const pages = [
   { name: "About", id: "About", icon: <InfoIcon /> },
   { name: "Work Experience", id: "workEx", icon: <WorkOutlineIcon /> },
   { name: "Project", id: "projects", icon: <AccountTreeIcon /> },
+  { name: "Contact", id: "contactMe", icon: <ContactEmergencyIcon /> },
 ];
 
 function ResponsiveAppBar({ setMode, mode, mobileView }) {

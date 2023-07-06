@@ -80,11 +80,17 @@ body {
   .codeSandBox,
   .CodeSandBoxClass,
   .linkedin,
-  .projectURL {
+  .projectURL,
+  .whatsapp {
     box-shadow: 0;
     transition: all 0.3s ease-in !important ;
   }
-
+  .whatsapp:hover {
+    box-shadow: 0 5px 8px rgba(3, 169, 244, 0.25);
+    fill: #25d366;
+    padding: 4px;
+    border-radius: 5px;
+  }
   .github:hover,
   .projectURL:hover {
     box-shadow: 0 5px 8px rgba(0, 0, 0, 0.5);
@@ -126,7 +132,8 @@ body {
     .aboutMe,
     #skills,
     .workEx,
-    .customCssBox {
+    .customCssBox,
+    #contactMe {
       flex-wrap: wrap;
     }
     .workEx {
@@ -147,7 +154,8 @@ body {
       padding-left: 10px !important;
     }
   }
-  .about {
+  .about,
+  #contactMe {
     /* height: 100vh; */
     opacity: 1;
     background: #262626;
@@ -215,6 +223,44 @@ body {
   }
   .modeChange {
     cursor: pointer;
+  }
+  .displayFlex {
+    display: flex;
+    flex-direction: column;
+    flex-wrap: nowrap;
+    align-content: center;
+    justify-content: center;
+    align-items: center;
+  }
+  #contactMe {
+    // input:focus-visible {
+    //   outline: white auto 1px !important;
+    // }
+    // *:focus-visible {
+    //   outline: white auto 1px !important;
+    // }
+    .MuiOutlinedInput-notchedOutline {
+      border-color: white !important;
+    }
+    * {
+      color: white !important;
+    }
+    .MuiFormHelperText-root {
+      color: red !important;
+    }
+    #borderColorRed-label {
+      color: red !important;
+      border-color: red !important;
+    }
+    // #borderColorRed {
+    //   fieldset {
+    //     border-color: red !important;
+    //   }
+    // }
+    .btnClass {
+      background: white;
+      color: black !important;
+    }
   }
 }
 .dark {

@@ -12,6 +12,7 @@ import About from "./about/About";
 import "./styles.scss";
 import WorkEx from "./workex/workex";
 import ThingsBuilt from "./thingsBuilt/ThingsBuilt";
+import { ContactMe } from "./contact/contactMe";
 import { ThemeProvider, createTheme } from "@mui/material/styles";
 import CssBaseline from "@mui/material/CssBaseline";
 // import CssBaseline from '@mui/material/CssBaseline';
@@ -56,10 +57,11 @@ const App = () => {
             <About />
             <WorkEx mobileView={mobileView} />
             <ThingsBuilt />
+            <ContactMe />
           </Container>
         </div>
-      </ThemeProvider> 
-    ) 
+      </ThemeProvider>
+    )
   );
-};  
+};
 export default App;
