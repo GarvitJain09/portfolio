@@ -80,11 +80,17 @@ body {
   .codeSandBox,
   .CodeSandBoxClass,
   .linkedin,
-  .projectURL {
+  .projectURL,
+  .whatsapp {
     box-shadow: 0;
     transition: all 0.3s ease-in !important ;
   }
-
+  .whatsapp:hover {
+    box-shadow: 0 5px 8px rgba(3, 169, 244, 0.25);
+    fill: #25d366;
+    padding: 4px;
+    border-radius: 5px;
+  }
   .github:hover,
   .projectURL:hover {
     box-shadow: 0 5px 8px rgba(0, 0, 0, 0.5);
