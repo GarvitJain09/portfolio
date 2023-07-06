@@ -1,10 +1,11 @@
-import React, { useRef } from "react";
+import React, { useRef, useState } from "react";
 import Box from "@mui/material/Box";
 import emailjs from "@emailjs/browser";
 import TextField from "@mui/material/TextField";
-import { Button, Container } from "@mui/material";
+import { Button, Container, createStyles } from "@mui/material";
 
 export const ContactMe = () => {
+  const [inValidEmail, setInvalidEmail] = useState("");
   const form = useRef();
 
   const sendEmail = (e) => {
@@ -26,10 +27,22 @@ export const ContactMe = () => {
         }
       );
   };
-
+  const validateEmail = (e) => {
+    if (/^\w+([\.-]?\w+)*@\w+([\.-]?\w+)*(\.\w{2,3})+$/.test(e.target.value)) {
+      setInvalidEmail("");
+    } else {
+      setInvalidEmail("Invalid Email");
+    }
+    if (e.target.value.length === 0) {
+      setInvalidEmail("");
+    }
+  };
   return (
-    <Container maxWidth="xl">
-      <section id="contactMe">
+    <section id="contactMe">
+      <Container maxWidth="xl">
+        <header>
+          <h1>Contact Me</h1>
+        </header>
         <Box
           component="form"
           sx={{
@@ -48,10 +61,14 @@ export const ContactMe = () => {
             name="user_name"
           />
           <TextField
-            id="outlined-basic"
+            error //{inValidEmail}
+            id={inValidEmail ? "borderColorRed" : "outlined-basicError"}
             label="Email"
             variant="outlined"
             name="user_email"
+            helperText={inValidEmail}
+            // className={inValidEmail ? "borderColorRed" : ""}
+            onBlur={validateEmail}
           />
           <TextField
             id="outlined-multiline-static"
@@ -60,11 +77,16 @@ export const ContactMe = () => {
             multiline
             rows={4}
           />
-          <Button type="submit" value="send" variant="contained">
+          <Button
+            type="submit"
+            value="send"
+            variant="contained"
+            className="btnClass"
+          >
             Send Email
           </Button>
         </Box>
-      </section>
-    </Container>
+      </Container>
+    </section>
   );
 };

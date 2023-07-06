@@ -46,7 +46,7 @@ const HeroSection = () => {
             >
               <DownloadIcon /> Resume
             </Button>
-            <Button variant="outlined" className="btnClass" href="#contact">
+            <Button variant="outlined" className="btnClass" href="#contactMe">
               Contact
             </Button>
           </div>

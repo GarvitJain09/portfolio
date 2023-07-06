@@ -239,6 +239,22 @@ body {
     * {
       color: white !important;
     }
+    .MuiFormHelperText-root {
+      color: red !important;
+    }
+    #borderColorRed-label {
+      color: red !important;
+      border-color: red !important;
+    }
+    // #borderColorRed {
+    //   fieldset {
+    //     border-color: red !important;
+    //   }
+    // }
+    .btnClass {
+      background: white;
+      color: black !important;
+    }
   }
 }
 .dark {
