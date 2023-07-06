@@ -24,7 +24,7 @@ const pages = [
   { name: "About", id: "About", icon: <InfoIcon /> },
   { name: "Work Experience", id: "workEx", icon: <WorkOutlineIcon /> },
   { name: "Project", id: "projects", icon: <AccountTreeIcon /> },
-  { name: "Contact", id: "contactMe", icon: <ContactEmergencyIcon /> },
+  { name: "Contact Me", id: "contactMe", icon: <ContactEmergencyIcon /> },
 ];
 
 function ResponsiveAppBar({ setMode, mode, mobileView }) {

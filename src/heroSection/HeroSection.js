@@ -15,8 +15,8 @@ const HeroSection = () => {
         <div id="homeContent" className="hero">
           <h1>I'm {basics.name}</h1>
           <p>
-            I'm a India based <strong>UI Developer</strong>, currently working
-            at <strong>{work[0].name}</strong> helping build a modern UI.
+            I am a <strong>UI Developer</strong> currently working at{" "}
+            <strong>{work[0].name}</strong>, India.
           </p>
           <div>
             <IconButton
@@ -58,7 +58,7 @@ const HeroSection = () => {
               <DownloadIcon /> Resume
             </Button>
             <Button variant="outlined" className="btnClass" href="#contactMe">
-              Contact
+              Contact Me
             </Button>
           </div>
         </div>
